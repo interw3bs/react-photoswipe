@@ -35,7 +35,7 @@ class PhotoSwipeGallery extends React.Component {
       options.index = itemIndex;
       options.getThumbBoundsFn = options.getThumbBoundsFn || ((index) => {
         let thumbnail = ReactDOM.findDOMNode(this.refs['thumbnail' + index]);
-        let img = thumbnail.getElementsByTagName('img')[0];
+        let img = thumbnail.getElementsByTagName('img')[0] || thumbnail;
         let pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
         let rect = img.getBoundingClientRect();
         return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
